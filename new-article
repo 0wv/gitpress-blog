@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -u
+
+file="$1"
+
+if [ -e "$file" ]; then
+  echo "existed: $file"
+  exit 1
+fi
+
+echo "---
+title: {{article.title}}
+date: $(date '+%Y/%m/%d %H:%M:%S')
+---" > "$file.md" \
+  && echo "created: $file.md"
